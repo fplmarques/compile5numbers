@@ -50,7 +50,7 @@ It is true that most statistical techniques assume that observations are indepen
   <img src="./figures/T01_pseudoreplicate_table_example.jpg" alt="drawing" width="800"/>
 </p>
 
-The table above starts 15 random numbers withdrawn from a log-normal distribution (meanlog = 3, sdlog = 0.35). The theoretical mean and median of the lognormal can be easily be calculated 1) and in this case are mean = 21.35423 and median = 20.08554. We will refer to these values as population parameters. Differences between mean and median indicate that the data deviate from symmetric distribution (e.g., normal, we will come back to that soon). When we calculated the mean and median from our sample (15 datapoints), we obtained the values of 20.56 and 20.30; respectively, which will refer as sample estimated parameters. Due to the finite sample size, we observe that the population parameters are not identical to those estimated from the sample. Additionally, the differences between central tendencies estimated from the sample are not as discrepant from each other when compared to those obtained for the population. Hence, based on the sample, the data seem not to deviate as much from a symmetric distribution as the population parameters would suggest.
+The table above starts 15 random numbers withdrawn from a log-normal distribution (meanlog = 3, sdlog = 0.35). The theoretical mean and median of the lognormal can be easily be calculated<sup>[1]</sup> and in this case are mean = 21.35423 and median = 20.08554. We will refer to these values as population parameters. Differences between mean and median indicate that the data deviate from symmetric distribution (e.g., normal, we will come back to that soon). When we calculated the mean and median from our sample (15 datapoints), we obtained the values of 20.56 and 20.30; respectively, which will refer as sample estimated parameters. Due to the finite sample size, we observe that the population parameters are not identical to those estimated from the sample. Additionally, the differences between central tendencies estimated from the sample are not as discrepant from each other when compared to those obtained for the population. Hence, based on the sample, the data seem not to deviate as much from a symmetric distribution as the population parameters would suggest.
 
 In Table 1, the columns Examples 1–4 include incremental amounts of pseudoreplication for 6 randomly chosen individuals (highlighted in yellow). For each example, pseudoreplication was introduced so that the mean value of the original individual was maintained. For instance, for “individual_1” the original value was 12.99, and the mean for all introduced pseudoreplication (i.e., (12.99+11.48+13.50+14.00)/4 = 12.99) has the same value.
 
@@ -69,7 +69,7 @@ The notation “23–45 (30±7; 8)”, so common in our field (see examples abov
 
 ** Distribution **
 
-The distribution is a summary of the frequency of individual values or ranges of values for a variable. One of the most common ways to describe a single variable is with a frequency distribution (Trochim, 2006). In Figure 1A you will find the frequency distribution of the total length of Ahamulina catarina compiled by Marques et al. (2012). Another way of describing the distribution of this data would be by a histogram of the probability densities (Figure 1B). This is simply a rescaling of the y-axis to make the areas of the bars sum 2). Under the density scale, the probability of sampling at random an observation that has between 30 and 35 mm is equal to the proportion of the summed area of the bars that encompasses this interval in the histogram. Finally, in Figure 1C we represent a theoretical Probability Density Function (PDF), assuming a normal distribution (i.e., the most popular bell-shaped, symmetric distribution) defined by two parameters estimated from the data, one which matches the theoretical central tendency and the other that matches the theoretical spread – which we will discuss in detail below. For density functions, the area below the curve defines the probability of withdrawing a random sample witing that area. Hence the total area under the curve is one, which is the same to say that a measure has a probability of 1.0 to assume one of the possible values in the range defined by the distribution.
+The distribution is a summary of the frequency of individual values or ranges of values for a variable. One of the most common ways to describe a single variable is with a frequency distribution (Trochim, 2006). In Figure 1A you will find the frequency distribution of the total length of Ahamulina catarina compiled by Marques et al. (2012). Another way of describing the distribution of this data would be by a histogram of the probability densities (Figure 1B). This is simply a rescaling of the y-axis to make the areas of the bars sum<sup>[2]</sup>. Under the density scale, the probability of sampling at random an observation that has between 30 and 35 mm is equal to the proportion of the summed area of the bars that encompasses this interval in the histogram. Finally, in Figure 1C we represent a theoretical Probability Density Function (PDF), assuming a normal distribution (i.e., the most popular bell-shaped, symmetric distribution) defined by two parameters estimated from the data, one which matches the theoretical central tendency and the other that matches the theoretical spread – which we will discuss in detail below. For density functions, the area below the curve defines the probability of withdrawing a random sample witing that area. Hence the total area under the curve is one, which is the same to say that a measure has a probability of 1.0 to assume one of the possible values in the range defined by the distribution.
 
 <p align="center">
   <img src="./figures/F01_ahamulina_tl_all_distribution.jpg" alt="drawing" width="900"/>
@@ -82,7 +82,7 @@ The distribution is a summary of the frequency of individual values or ranges of
 
 The central tendency of a distribution is an estimate of the “center” of a distribution, and as such should give you an idea on what particular value or interval of values most of your samples reside. This is an useful metric, especially when you have no access to a graphic representation of the distribution. In fact, parameters such as central tendency, dispersion and skewness should try to do the best description of your distribution. According to Lane at al. (2014), there are three main ways of defining the center of a distribution, and the parameters used to inform us of the central tendency of a distribution rely on those different definitions. One possible way would be to consider de central tendency is the point at which the distribution is in balance. An alternative measure would be considering the center of a distribution the value that minimize that absolute deviations (differences). Finally, the concept of central tendency could be based on the value that minimizes the sum of squared deviations.
 
-There are three major types of measures of central tendency: **Mean** (arithmetic), **Median** and **Mode**. The arithmetic mean is the most common measure of central tendency in our field. The theoretical mean is the sum of each in the range of the distribution times the probability the distribution assigns to it<sup>[3]</sup>), and is related to minimizing the sum of squares of deviations from the central tendency. The median is also a frequently used measure of central tendency – although in our field rarely so. The median, also referred as the 50th percentile as it halves the area of the distribution, is the midpoint of a distribution and is based on the concept of the sum of the absolute deviations. Finally, the mode is the most frequently occurring value.
+There are three major types of measures of central tendency: **Mean** (arithmetic), **Median** and **Mode**. The arithmetic mean is the most common measure of central tendency in our field. The theoretical mean is the sum of each in the range of the distribution times the probability the distribution assigns to it<sup>[3]</sup>, and is related to minimizing the sum of squares of deviations from the central tendency. The median is also a frequently used measure of central tendency – although in our field rarely so. The median, also referred as the 50th percentile as it halves the area of the distribution, is the midpoint of a distribution and is based on the concept of the sum of the absolute deviations. Finally, the mode is the most frequently occurring value.
 
 
 <p align="center">
@@ -221,5 +221,183 @@ and R would return you the following plot:
 
 ## How does the compile5numbers.r work?
 
+The script compile5numbers.r was written to plot the distribution of your data as in Figure 7 (wisker plots) either for a set of individuals/population or different sets for comparison purposes. Below I outline the input file format and ways you could analyze your data.
 
+**Structure of the input file**
+
+The input file **must** be a text format file, TAB delimited, and have at least three columns: **specimen**, **group**, and **variable** (as many as desired). It should look like this:
+
+```
+specimen        group     n_testes      total_length
+specimen_1      host      2             2.1
+specimen_2      host      3             2.2
+specimen_3      host      3             2.2
+specimen_4      host      5             2.3
+specimen_5      host      5             2.4
+specimen_6      host      6             2.5
+specimen_7      host      6             2.6
+specimen_8      host      7             1.2
+specimen_9      host      9             5.5
+specimen_10     host      10            6.7
+specimen_11     host      12            6.7
+specimen_12     host      12            7.8
+specimen_13     host      13            8.0
+specimen_14     host      13            8.0
+specimen_15     host      14            9.0
+```
+
+You can have as many variables you want as well as many groups. Groups are identification tokens for specimens, let us say, host species or localities. One important thing to remember, the script averages out pseudoreplication. Thus, **if the first column has more than a single specimen under the same name within a given group, the script will compute the mean value for the specimen and consider a single data entry** – for the reasons discussed above.
+
+**Modes of execution**
+
+In its simplest form, the script should be executed in a shell terminal with the following sintax:
+```
+Rscript compile5numbers.r input_file
+```
+For example, the data above was in a file called example.txt, the execution would be:
+```
+Rscript compile5numbers.r example
+```
+
+This would return the file called **my_out.csv**, which is a file in a CSV (comma separated value) format – therefore you can open it in a spreadsheet application of your choice, with the following content:
+
+|  | stats | n_testes | total_length |
+|--|-------|----------|--------------|
+| 1 | LowerValue | 2 | 1.2 |
+| 2 | 1stQ | 5 | 2.25 |
+| 3 | Median | 7 | 2.6 |
+| 4 | 3rdQ | 12 | 7.25 |
+| 5 | UpperValue | 14 | 9 |
+| 6 | N | 15 | 15 |
+
+
+The problem with this syntax is that you run the risk of overwriting output files, Thus the safest execution syntax would be
+```
+Rscript compile5numbers.r example -prefix any_word
+```
+The argument argument “any_word” for the option **-prefix** attaches the term at the beginning of each output file. For example, is you execute
+```
+Rscript compile5numbers.r example -prefix fernando
+```
+The same output file as before would be called **fernando_out.csv**.
+
+This script can include as output files boxplots. To do that you have to include the option **-boxplot** into the command line, like:
+```
+Rscript compile5numbers.r example.txt -boxplot -prefix fernando
+```
+For the data above, this command line would generate a CSV file (Scalable Vector Graphics) called **fernando_boxplot001.svg** with the following box plots:
+
+<p align="center">
+  <img src="./figures/F08_boxplot001.jpg" alt="drawing" width="450"/>
+</p>
+
+**Figure 8.** Whisker plots for number of testes and total length in **fernando_boxplot001.svg**.
+
+The last feature of this script is its ability to compute statistics and draw plots comparing groups and variables. To illustrate that, let us modify the input file attributing the specimens to two different hosts. Something like:
+
+```
+specimen      group      n_testes      total_length
+specimen_1    host_1      2            2.1
+specimen_2    host_1      3            2.2
+specimen_3    host_1      3            2.2
+specimen_4    host_1      5            2.3
+specimen_5    host_1      5            2.4
+specimen_6    host_1      6            2.5
+specimen_7    host_1      6            2.6
+specimen_8    host_2      7            1.2
+specimen_9    host_2      9            5.5
+specimen_10   host_2      10            6.7
+specimen_11   host_2      12            6.7
+specimen_12   host_2      12            7.8
+specimen_13   host_2      13            8.0
+specimen_14   host_2      13            8.0
+specimen_15   host_2      14            9.0
+```
+
+The option that allows you to compare groups per variable is called -groups, obviously! If not evoked, the script will treat the data as a single class group and the results would be the same as before even if your dataset has class groups defined. Here is the an example of command line evoking the comparative analysis:
+
+Rscript compile5numbers.r example_hosts_groups.txt -boxplot -groups -prefix fernando_2
+This analysis generates 3 files: fernando_2_out.csv, fernando_2_boxplot001.svg, and fernando_2_boxplot002.svg. The first one contains the summary statistics for each groups, and the other two files are SVG figures containing box plots for each variable.
+
+Here is the structure of the summary statistics:
+
+|  | group | stats | n_testes | total_length |
+|--|-------|-------|----------|--------------|
+| 1 | host_1 | LowerValue | 2 | 2.1 |
+| 2 | host_1 | 1stQ | 3 | 2.2 |
+| 3 | host_1 | Median | 5 | 2.3 |
+| 4 | host_1 | 3rdQ | 5.5 | 2.45 |
+| 5 | host_1 | UpperValue | 6 | 2.6 |
+| 6 | host_1 | N | 7 | 7 |
+| 7 | host_2 | LowerValue | 7 | 5.5 |
+| 8 | host_2 | 1stQ | 9.5 | 6.1 |
+| 9 | host_2 | Median | 12 | 7.25 |
+| 10 | host_2 | 3rdQ | 13 | 8 |
+| 11 | host_2 | UpperValue | 14 | 9 |
+| 12 | host_2 | N | 8 | 8 |
+
+Here are the plots generated</sup>[5]</sup>:
+
+<p align="center">
+  <img src="./figures/F09_boxplot001_and_2.jpg" alt="drawing" width="650"/>
+</p>
+
+**Figure 9.** Whisker plots as a visual representation of the five-number summary statistics for two variable and two populations.
+
+
+The results of this analysis is two plots as shown above. On you left you have the comparative distribution of the number of testes of these two groups of worms. Note that the ranges do not overlap. What does that mean? Well, we would say that the ranges of testes numbers of those specimens do not overlap. That is it. On your right, you have the distribution of the total length of those two groups. There is something worth a comment on that graph. Observe that the box plot recognized an outlier for the specimens attributed to Host 2. This is a useful tool of this script – of the box plot to be fair – that would allow you to recognize in an objective was data points that deviate considerably from the variability of your data. Whether that value a wrong class attribution, measurement error, or even a possible expectation for the distribution (see below) will require you to go back to the specimen, evaluate you data distribution, and think about it.
+
+Before we move to our next section, we want to think a little bit more about the plots above. When you compare the distributions of these two variables, you realize that whereas for number of testes the ranges between specimens from the two hosts are closer to each other than when you compare the distribution reported for total length. The question we want you to ask yourselves is whether you would be willing to use any of those variables to state that specimens from Host 1 differ from those found in Host 2. That is, from what you have at hand, would you be save making generalizations about population parameter estimates? Remember that inferential statistics require large sample sizes and random sampling. How many worms you have? Are they from a single host (per group)? Is your sample biogeographycally representative or are they from a single locality? Did you selected a random sample of the specimens you had, or you selected them based on some criterion that might influence the results of your statistics? Depending of your answer, your analysis ends here, as a description of your data.
+
+### Inferential statistics (some thoughts)
+
+This section deserves a detailed treatment, especially in light of the tools that are available to us to make a better, and perhaps, a proper use of the morphometric data we intent to use in systematics of cestodes. This will come in a later version of this document. For the time being, we would like to pinpoint some to the limitations of the methods described above. We think that the example below will demonstrate to you, what you can and cannot do with descriptive statistics. Consider the following two adjacent normal distribution:
+
+<p align="center">
+  <img src="./figures/F10_two_normal_dists.jpg" alt="drawing" width="550"/>
+</p>
+
+**Figure 10.** Theoretical normal distributions (saple size = 1000000) for variables 1 (mean=5, sd=0.8) and 2 (mean=7, sd=0.8) with respective shaded areas that correspond to 95% of their distribution.
+
+We will start with two normally distributed variables (1 and 2) that overlap extensively. Observe that each distribution reaches the central tendency of the other. Although we could quantify the area of overlap between these two distributions, suffice to say they overlap more than we would wish for a diagnostic character.
+
+The box plots below are a results of 9 random runs in which we drawn 7 values at random from each distribution and used the values to build the plots. Have a close look at them:
+
+<p align="center">
+  <img src="./figures/F11_random_samplesize.jpg" alt="drawing" width="800"/>
+</p>
+
+**Figure 11.** Box plot for 9 trials of sample size = 7 from random samples withdrawn from the distributions in Figure 10.
+
+A close inspections of these box plots reveal that in 2/3 of them the ranges did not overlap despite their original distribution. Also, note that in all of them, the plots are not symmetric, suggesting that the distribution of the data is not normal. All of these attributes are artefacts of a small sample size. Consider that that is the same sample size used for the groups of the plots we generated for testes number and total length above!
+
+Now, look at the behavior of these plots as sample size increases:
+
+<p align="center">
+  <img src="./figures/F12_random_10to10000_a.jpg" alt="drawing" width="800"/>
+</p>
+
+**Figure 12.**Box plot for 9 trials of sample sizes (N) varying from 10 to 10000 from random samples withdrawn from the distributions in Figure 10.
+As can be shown in these box plots above, as the sample sizes increases the more obvious is the overlap between these two distributions. One this to notice as well as that after 200 samples, all plots become symmetric – reflecting the properties of the population distribution, that is, normality. Finally, observe that even withdrawing random numbers from the distribution, the box plots still recognizing some of them as outliers. That illustrate that even if box plots regard some values as outliers they can still be par of your distribution.
+
+## Literature cited
+
+- Fisher, R.A. 1918. The correlation between relatives on the supposition of Mendelian inheritance. Transactions of the Royal Society of Edinburgh 52: 399–433.
+- Hurlbert S.H. 1984. Pseudoreplication and the design of ecological field experiments. Ecol Monogr, 54(2):187–211.
+- Klazema, A. 2014. Descriptive and Inferential Statistics: How to Analyze Your Data. https://www.udemy.com/blog/descriptive-and-inferential-statistics/ accessed on July, 2014.
+- Lane, D.M.; Scott, D.; Hebl, M.; Guerra, R.; Osherson, D and Ziemer, H. 2014. Introduction dto Statistics. Online Statistics Education: A Multimedia Course of Study (http://onlinestatbook.com/). Project Leader: David M. Lane, Rice University. Accessed on July, 2014.
+- Lazic, E.S. 2010. The problem of pseudoreplication in neuroscientific studies: is it affecting your analysis? BMC Neuroscience, 11:5.
+- Millar, R.B. & Anderson, M.R. 2004). Remedies for pseudoreplication. Fisheries Research, 70(2–3): 397–407.
+- Schank J.C. & Koehnle T.J. 2009. Pseudoreplication is a pseudoproblem. Journal of Comparative Psychology, 123(4):421–433.
+- Templenton, A.R. 2006. Population genetics and microevolutionay theory. Wiley & Sons, Inc.
+- Trochim, W.M.K. 2006. Descriptive Statistics. http://www.socialresearchmethods.net/kb/statdesc.php Accessed on July, 2014.
+- Tukey, J.W. 1977. Exploratory Data Analysis. Addison-Wesley.
+- Zuur, A.F., Ieno, A.N. & Elphick, C.S. 2010. A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution, 1:3–14.
+
+## Footnotes
+- <sup>[1]</sup> See http://en.wikipedia.org/wiki/Log-normal_distribution
+- <sup>[2]</sup> Bars are rectangles, then to get their areas multiply their width and height.
+- <sup>[3]</sup> For continuous measures the sum is replaced by an integral, which is a limit of a sum.
+- <sup>[4]</sup> Akaike information criterion.
+- <sup>[5]</sup> You can try yourself downloading the exemple input files provided.
 
